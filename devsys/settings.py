@@ -120,7 +120,7 @@ STATIC_URL = '/static/'
 
 # pasta media dos dos arquivos(arq) para upload/dowload
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'devsys/static')
+    os.path.join(BASE_DIR, '/static')
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
