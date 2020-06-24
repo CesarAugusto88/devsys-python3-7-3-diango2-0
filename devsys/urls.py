@@ -3,23 +3,12 @@ from django.urls import path
 from core import views
 from django.views.generic import RedirectView
 
-# do projeto Upload
+# projeto Upload
 from django.conf import settings
 from django.conf.urls.static import static
 
 
 urlpatterns = [
-    # Upload
-    # Verificar para retirar somente upload sem download:
-    path('devsys/upload/', views.upload, name='upload'),
-    
-    path('devsys/arqs/', views.arq_list, name='arq_list'),
-    path('devsys/arqs/upload/', views.upload_arq, name='upload_arq'),
-    path('devsys/arqs/<int:pk>/', views.delete_arq, name='delete_arq'),
-   
-    # Verificar para retirar class/arqs...:
-    path('devsys/class/arqs/', views.ArqListView.as_view(), name='class_arq_list'),
-    path('devsys/class/arqs/upload/', views.UploadArqView.as_view(), name='class_upload_arq'),
 
     #-----------------------------------------------------------------------
     path('admin/', admin.site.urls),
@@ -60,8 +49,18 @@ urlpatterns = [
     path('login/submit', views.submit_login),
     path('logout/', views.logout_user, name='logout_user'),
 
+    # Upload
+    # Verificar para retirar somente upload sem download:
+    path('devsys/upload/', views.upload, name='upload'),
+    
+    path('devsys/arqs/', views.arq_list, name='arq_list'),
+    path('devsys/arqs/upload/', views.upload_arq, name='upload_arq'),
+    path('devsys/arqs/<int:pk>/', views.delete_arq, name='delete_arq'),
+   
+    # Verificar para retirar class/arqs...:
+    path('devsys/class/arqs/', views.ArqListView.as_view(), name='class_arq_list'),
+    path('devsys/class/arqs/upload/', views.UploadArqView.as_view(), name='class_upload_arq'),
 ]
 
-# Upload - verificar, talvez o código não precise:
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -26,6 +26,7 @@ class OS_Admin(admin.ModelAdmin):
     ordering = ['dt_entrada']
     search_fields = ['dt_agenda', 'descricao', 'id']
 
+
 """ tabela no models (colocar Visitante no import)
 class Vis_Admin(admin.ModelAdmin):
     list_display = ('id', 'nome',  'cpf', 'fone1')

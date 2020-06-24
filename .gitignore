@@ -130,3 +130,4 @@ static_collected
 .mypy_cache
 
 media/
+*/migrations/*

@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
   {% block content_header %}
     <h2>Arquivos</h2>
     
-    <a href="/devsys" style="text-decoration: none;">
+    <a href="/devsys/funcionarios" style="text-decoration: none;">
       <button type="button">&lt;&lt; Voltar</button>
     </a>
     <p>
@@ -16,7 +15,7 @@
   <table class="pure-table pure-table-horizontal">
     <thead>
       <tr>
-        <th>Imagem</th>
+        <!--<th>Imagem</th>-->
         <th>Título</th>
         <th>Assunto</th>
         <th>Download</th>
@@ -26,6 +25,9 @@
     <tbody>
       {% for arq in arqs %}
         <tr>
+
+          {% comment %}
+          <!--Retirando imagens...-->
           <td>
             {% if arq.imagem %}
               <img src="{{ arq.imagem.url }}" alt="{{ arq.titulo }}" style="width:100px;">
@@ -33,6 +35,8 @@
               <span class="pure-form-message">No imagem</span>
             {% endif %}
           </td>
+          {% endcomment %}
+
           <td>{{ arq.titulo }}</td>
           <td>{{ arq.assunto }}</td>
           <td>
@@ -43,7 +47,8 @@
           <td>
             <form method="post" action="{% url 'delete_arq' arq.pk %}">
               {% csrf_token %}
-              <button type="submit" class="pure-button pure-button-active">Delete</button>
+              <!-- onclick deseja realmente deletar...-->
+              <button type="submit" class="pure-button pure-button-disabled" onclick="return confirm('Tem certeza que deseja deletar esse registro?');">Delete</button>
             </form>
           </td>
         </tr>

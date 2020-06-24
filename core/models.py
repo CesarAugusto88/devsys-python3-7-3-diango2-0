@@ -269,17 +269,24 @@ class Arq(models.Model):
     titulo = models.CharField(max_length=100)
     assunto = models.CharField(max_length=100)
     arquivo = models.FileField(upload_to='arq/aquivos/')
-    imagem = models.ImageField(upload_to='arq/imagens/', null=True, blank=True)
+    #Retirado imagem -> imagem = models.ImageField(upload_to='arq/imagens/', null=True, blank=True)
+
+    
+    class Meta:
+        verbose_name = 'Arquivo'
+        verbose_name_plural = 'Arquivos'
+        ordering = ['assunto']
 
     def __str__(self):
         return self.titulo
 
     def delete(self, *args, **kwargs):
         self.arquivo.delete()
-        self.imagem.delete()
+        # self.imagem.delete()
         super().delete(*args, **kwargs)
+    
 
-""" Para cadastrar visitantes e por FOTOS...
+""" Para cadastrar visitantes e colocar FOTOS...
 class Visitante(models.Model):
     referencial = models.IntegerField(blank=True, null=True)
     nome = models.CharField(max_length=60)
@@ -318,4 +325,5 @@ class Visitante(models.Model):
 
     def __str__(self):
 
-        return self.nome """
+        return self.nome 
+"""
