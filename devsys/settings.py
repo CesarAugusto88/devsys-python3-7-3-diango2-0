@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-'core',
+    
+    'core',
     'crispy_forms',
 ]
 
@@ -114,18 +115,17 @@ USE_TZ = False #True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # pasta media dos arquivos(arq) para upload/dowload. Dentro de devsys
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'devsys/static')
+    os.path.join(BASE_DIR, 'static')
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'devsys/media')
-
-MEDIA_URL = '/media/'
+MEDIA_URL = '/mediafiles/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 
 #Para fazer deploy usar import django_heroku (colocar no requirements.txt): retirando para funcionar com Cling
