@@ -126,8 +126,3 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/mediafiles/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
-
-
-#Para fazer deploy usar import django_heroku (colocar no requirements.txt): retirando para funcionar com Cling
-#import django_heroku
-#django_heroku.settings(locals())

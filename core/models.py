@@ -268,7 +268,7 @@ class Ordem_Servico(models.Model):
 class Arq(models.Model):
     titulo = models.CharField(max_length=100)
     assunto = models.CharField(max_length=100)
-    arquivo = models.FileField(upload_to='arq/aquivos/')
+    arquivo = models.FileField(upload_to='arq/arquivos/')
     #Retirado imagem -> imagem = models.ImageField(upload_to='arq/imagens/', null=True, blank=True)
 
     
