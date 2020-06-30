@@ -129,5 +129,5 @@ static_collected
 
 .mypy_cache
 
-media/
+mediafiles/
 */migrations/*
