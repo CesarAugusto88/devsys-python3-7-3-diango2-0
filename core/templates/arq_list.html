@@ -25,9 +25,6 @@
     <tbody>
       {% for arq in arqs %}
         <tr>
-
-          {% comment %}
-          <!--Retirando imagens...-->
           <td>
             {% if arq.imagem %}
               <img src="{{ arq.imagem.url }}" alt="{{ arq.titulo }}" style="width:100px;">
@@ -35,7 +32,6 @@
               <span class="pure-form-message">No imagem</span>
             {% endif %}
           </td>
-          {% endcomment %}
 
           <td>{{ arq.titulo }}</td>
           <td>{{ arq.assunto }}</td>
