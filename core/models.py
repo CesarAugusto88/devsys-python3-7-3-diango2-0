@@ -269,7 +269,7 @@ class Arq(models.Model):
     titulo = models.CharField(max_length=100)
     assunto = models.CharField(max_length=100)
     arquivo = models.FileField(upload_to='arq/arquivos/')
-    #Retirado imagem -> imagem = models.ImageField(upload_to='arq/imagens/', null=True, blank=True)
+    imagem = models.ImageField(upload_to='arq/imagens/', null=True, blank=True)
 
     
     class Meta:
@@ -282,7 +282,7 @@ class Arq(models.Model):
 
     def delete(self, *args, **kwargs):
         self.arquivo.delete()
-        # self.imagem.delete()
+        self.imagem.delete()
         super().delete(*args, **kwargs)
     
 
